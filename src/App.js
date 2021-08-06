@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import CircleSelector from './components/CircleSelector/CircleSelector.jsx';
+import Circles from './components/Circles/Circles.jsx';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state ={
+    selectedCircle: 1,
+  }
+
+  updateSelected = (number) => {
+    this.setState ({
+      selectedCircle: number,
+
+    })
+  }
+
+  //whatever number selected circle is - haow to conditionall passs classname 
+  // circles is going to need to understand the state 
+
+
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">UNIT 4 FINAL ASSESSMENT</header>
+        <main>
+          
+
+          <CircleSelector
+           handleClick={this.updateSelected}
+          />
+
+
+          <Circles
+          selectedCircle={this.state.selectedCircle}
+          />
+
+
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
